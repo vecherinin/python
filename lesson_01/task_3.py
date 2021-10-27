@@ -1,5 +1,5 @@
 start_number = 0
-finish_number = 1000
+finish_number = 234
 percent = ' процент'
 ending_a = 'а'
 ending_ov = 'ов'
