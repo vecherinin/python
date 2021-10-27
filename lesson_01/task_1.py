@@ -1,18 +1,19 @@
-duration = int(input('Введите продолжительность времени в секундах: '))
+duration = int(input('Введите продолжительность времени в секундах: \n'))
 
-minute = 60
-hour = minute*60
-day = hour*24
+whole_minute = 60
+whole_hour = whole_minute * 60
+all_day = whole_hour * 24
+remainder = duration % all_day
 
-h = duration % day // hour
-m = duration % day % hour // minute
-s = duration % day % hour % minute
+hours = remainder // whole_hour
+minutes = remainder % whole_hour // whole_minute
+seconds = remainder % whole_hour % whole_minute
 
-if duration < minute:
-    print('До минуты: ' + str(s) + ' сек.')
-elif duration < hour:
-    print('До часа: ' + str(m) + ' мин ' + str(s) + ' сек.')
-elif duration < day:
-    print('До суток: ' + str(h) + ' час ' + str(m) + ' мин ' + str(s) + ' сек.')
+if duration < whole_minute:
+    print('До минуты:', str(seconds), 'сек.')
+elif duration < whole_hour:
+    print('До часа:', str(minutes), 'мин', str(seconds), 'сек.')
+elif duration < all_day:
+    print('До суток:', str(hours), 'час', str(minutes), 'мин', str(seconds), 'сек.')
 else:
-    print(str(duration // day) + ' дн ' + str(h) + ' час ' + str(m) + ' мин ' + str(s) + ' сек.')
+    print(str(duration // all_day), 'дн', str(hours), 'час', str(minutes), 'мин', str(seconds), 'сек.')
