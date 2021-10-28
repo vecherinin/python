@@ -11,7 +11,6 @@ print('\nСтрока:', ', '.join(price_list), sep='\n')
 for i in range(len(price_list)):
     price_list[i] = price_list[i].replace(' руб ', '').replace(' коп', '')
     price_list[i] = float(price_list[i]) / 100
-# print(price_list)
 
 print('\nДоказательство операции in place:', '\nid перед сортировкой', id(price_list))
 price_list.sort()
