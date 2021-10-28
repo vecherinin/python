@@ -4,10 +4,11 @@ print('Исходный список:', price_list, sep='\n')
 
 def float_to_string(x):
     for i in range(len(x)):
-        rub_in_kop = int(x[i] * 100) # Рубли в копейках
-        rub = rub_in_kop // 100 # Целых рублей
+        rub_in_kop = int(x[i] * 100)  # Рубли в копейках
+        rub = rub_in_kop // 100  # Целых рублей
         kop = rub_in_kop % 100
         x[i] = f"{rub} руб {kop:02d} коп"
+
 def string_to_float(x):
     for i in range(len(x)):
         x[i] = x[i].replace(' руб ', '').replace(' коп', '')
