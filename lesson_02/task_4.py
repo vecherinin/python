@@ -3,8 +3,8 @@ print('Исходный список:', price_list, sep='\n')
 
 for i in range(len(price_list)):
     rub_in_kop = int(price_list[i] * 100)
-    rub = rub_in_kop // 100
-    kop = rub_in_kop % 100
+    rub = rub_in_kop // 100  # Рубли в копейках
+    kop = rub_in_kop % 100  # Целых рублей
     price_list[i] = f"{rub} руб {kop:02d} коп"
 print('\nСтрока:', ', '.join(price_list), sep='\n')
 
