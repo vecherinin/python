@@ -27,5 +27,3 @@ def thesaurus(* names):
             output[fst_letter] = []
         output[fst_letter].append(name)
     return output
-
-names = ['Иван', 'Мария', 'Пётр', 'Илья', 'Василий', 'Игнатий', 'Галина', 'Феликс']
