@@ -21,9 +21,10 @@
 
 def thesaurus(* names):
     output = {}
-    for name in names:
+    for name in sorted(names):
         fst_letter = name[0]
         if fst_letter not in output:
             output[fst_letter] = []
         output[fst_letter].append(name)
+        sorted(output)
     return output
