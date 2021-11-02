@@ -24,7 +24,6 @@
 
 def thesaurus_adv(*list_of_names):
     output = {}
-    sorted_output = {}
     names = sorted(list_of_names)
     for full in names:
         name = str(full).split()
@@ -37,6 +36,7 @@ def thesaurus_adv(*list_of_names):
         if lt_first not in output[lt_last]:
             output[lt_last][lt_first] = []
             output[lt_last][lt_first].append(full)
+    sorted_output = {}
     for i in sorted(output.keys()):
         sorted_output[i] = output[i]
     return sorted_output
