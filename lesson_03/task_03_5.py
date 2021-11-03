@@ -18,7 +18,7 @@ def get_jokes(num, n=nouns, adv=adverbs, adj=adjectives):
     adj: list of adjectives (default: adjectives).
     """
     output = []
-    for _ in range(qt):
+    for _ in range(num):
         chosen_n = choice(n)
         chosen_adv = choice(adv)
         chosen_adj = choice(adj)
