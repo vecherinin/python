@@ -24,4 +24,3 @@ def get_jokes(num, n=nouns, adv=adverbs, adj=adjectives):
         chosen_adj = choice(adj)
         output.append(f'{chosen_n} {chosen_adv} {chosen_adj}')
     return output
-print(get_jokes.__doc__)
