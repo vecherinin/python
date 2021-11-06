@@ -2,7 +2,7 @@ import requests
 
 
 def tag_slice(string, tag):
-    """Find and return substring between XML tags
+    """Find and return substring between XML tags.
     Required keyword arguments:
     string: a string to search for.
     tag: a tag to search for.
@@ -18,13 +18,18 @@ def tag_slice(string, tag):
 
 
 def currency_rates(url, currency):
+    """Return the currency rate.
+    Required keyword arguments:
+    url - site address with currency rates.
+    currency: three-letter currency code.
+    """
     response = requests.get(url)
     full_text = response.text.split('</Valute><Valute ID="')
     output = dict()
     for each in full_text:
         valute = tag_slice(each, 'CharCode')
-        value = tag_slice(each, 'Value')
-        output[valute] = float(value.replace(',', '.'))
+        value = tag_slice(each, 'Value').replace(',', '.')
+        output[valute] = float(value)
     return output.get(currency.upper())
 
 
