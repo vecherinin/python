@@ -5,14 +5,14 @@ adverbs = ['сегодня', 'вчера', 'завтра', 'позавчера',
 adjectives = ['веселый', 'яркий', 'зеленый', 'утопичный', 'мягкий', 'вялый', 'ароматный']
 
 
-def get_jokes(num, n=nouns, adv=adverbs, adj=adjectives):
+def get_jokes(num=1, n=nouns, adv=adverbs, adj=adjectives):
     """get_jokes (num, n=nouns, adv=adverbs, adj=adjectives)
     Choose random three words from each list
     and return a list of strings
     with a certain number of sentences.
 
     Optional keyword arguments:
-    num: number (int) of sentences to output.
+    num: number (int) of sentences to output (default: 1).
     n: list of nouns (default: nouns).
     adv: list of adverbs (default: adverbs).
     adj: list of adjectives (default: adjectives).
