@@ -1,22 +1,51 @@
-# Усложнение [одна звездочка]:
-# нужен генератор нечётных чисел от 1 до n (включительно),
-# для чисел, квадрат которых меньше 200. Все остальное как в основном задании.
+# Написать генератор нечётных чисел от 1 до n (включительно), используя ключевое слово yield.
+# Полностью истощить генератор.
+#
+# Техническое задание
+#     Отличие от задания 1 - только в использовании yield.
+#
+# Алгоритм
+#     Помните, что фукция генератор вызывается один раз,
+#     она возвращает объект-генератор и с ним дальше и работаем.
 
 
-def iterator_without_yield_advanced(n):
+def iterator_with_yield(n):
     if n > 0:
-        gen = (el for el in range(1, n+1, 2) if el**2 < 200)
-        return gen
+        num = 1
+        while num <= n:
+            yield num
+            num += 2
 
-n = 1000  # Любое положительное число
-gen2 = iterator_without_yield_advanced(n)
+gen1 = iterator_with_yield(20)
 
-# Можно раскомментить ниже для истощения итератора:
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
-# print(next(gen2))
+
+# Усложнение [одна звездочка]:
+#     С ключевым словом yield - как в задании 1:
+#     генератор нечётных чисел от 1 до n (включительно),
+#     для чисел, квадрат которых меньше 200.
+
+
+def iterator_with_yield_adv1(n):
+    if n > 0:
+        num = 1
+        while num**2 < 200:
+            yield num
+            num += 2
+
+gen2 = iterator_with_yield_adv1(1000)
+
+# Усложнение [две звездочки]:
+#     С ключевым словом yield: Вычислять и возвращать само число
+#     и накопительную сумму этого и предыдущих чисел.
+
+
+def iterator_with_yield_adv2(n):
+    if n > 0:
+        num, sum = 1, 1
+        while num**2 < 200:
+            yield num, sum
+            num += 2
+            sum += num
+
+
+gen3 = iterator_with_yield_adv2(1000)
