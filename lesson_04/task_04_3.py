@@ -16,7 +16,7 @@
 #     3. Если есть требования, что мы используем обе функции в своей работе, как соблюсти принцип DRY?
 
 
-from requests import get, utils
+from requests import get
 import datetime
 
 
