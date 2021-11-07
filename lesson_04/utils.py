@@ -16,7 +16,6 @@ def tag_slice(string, tag):
 
 def currency_rates(url, currency):
     """Return the currency rate."""
-    # response = requests.get(url)
     full_text = get(url).text.split('</Valute><Valute ID="')
     output = dict()
     for each in full_text:
@@ -28,7 +27,6 @@ def currency_rates(url, currency):
 
 def currency_rates_advanced(url, currency):
     """Return the tuple with the date and currency rate."""
-    # response = requests.get(url)
     date_string = get(url).headers.get('Date')
     long_date = datetime.datetime.strptime(date_string, '%a, %d %b %Y %X %Z')
     short_date = datetime.datetime.strftime(long_date, '%Y, %m, %d')
