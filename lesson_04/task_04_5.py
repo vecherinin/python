@@ -10,16 +10,15 @@
 from utils import currency_rates
 from sys import argv
 
-cmd_input = argv
 url = 'http://www.cbr.ru/scripts/XML_daily.asp'
 
-if len(cmd_input) == 1:
+if len(argv) == 1:
     print('Ошибка. Код валюты не введён.')
     exit(0)
-elif len(cmd_input) == 2:
-    output = currency_rates(url, cmd_input[1])
+elif len(argv) == 2:
+    output = currency_rates(url, argv[1])
     if output is None:
         output = 'Валюта не найдена'
-    print(cmd_input[1].upper(), ': ', output, sep='')
-elif len(cmd_input) > 2:
+    print(argv[1].upper(), ': ', output, sep='')
+elif len(argv) > 2:
     print('Ошибка ввода.\nКод валюты должен состоять из трёх букв без пробелов.')
