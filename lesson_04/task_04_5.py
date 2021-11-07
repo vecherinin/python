@@ -20,5 +20,5 @@ elif len(argv) == 2:
     if output is None:
         output = 'Валюта не найдена'
     print(argv[1].upper(), ': ', output, sep='')
-elif len(argv) > 2:
+else:
     print('Ошибка ввода.\nКод валюты должен состоять из трёх букв без пробелов.')
