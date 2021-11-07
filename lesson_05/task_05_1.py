@@ -13,12 +13,13 @@
 
 
 def iterator_without_yield(n):
-    gen1 = (el for el in range(1, n+1, 2))
-    return gen1
+    if n > 0:
+        gen = (el for el in range(1, n+1, 2))
+        return gen
 
 
-# Для тестирования фукнции:
-n = 15
+# Для тестирования:
+n = 11  # Любое положительное число
 gen1 = iterator_without_yield(n)
 
 # Можно раскомментить для истощения итератора:
