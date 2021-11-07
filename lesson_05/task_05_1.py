@@ -18,11 +18,22 @@ def iterator_without_yield(n):
         return gen
 
 
-# Для тестирования:
-n = 11  # Любое положительное число
-gen1 = iterator_without_yield(n)
+# Усложнение [одна звездочка]:
+# нужен генератор нечётных чисел от 1 до n (включительно),
+# для чисел, квадрат которых меньше 200. Все остальное как в основном задании.
 
-# Можно раскомментить для истощения итератора:
+
+def iterator_without_yield_advanced(n):
+    if n > 0:
+        gen = (el for el in range(1, n+1, 2) if el**2 < 200)
+        return gen
+
+
+# Для тестирования (аргумент_1 - любое положительное число):
+gen1 = iterator_without_yield(11)
+gen2 = iterator_without_yield_advanced(1000)
+
+# Ниже можно раскомментить для истощения первого итератора:
 # print(next(gen1))
 # print(next(gen1))
 # print(next(gen1))
@@ -32,3 +43,13 @@ gen1 = iterator_without_yield(n)
 # print(next(gen1))
 # print(next(gen1))
 # print(next(gen1))
+
+# для истощения второго итератора:
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
+# print(next(gen2))
