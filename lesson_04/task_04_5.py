@@ -1,15 +1,25 @@
+# [Задача со звездочкой]: Доработать скрипт из предыдущего задания: теперь он должен работать и из консоли.
+# Используйте аргументы командной строки.
+#
+# Техническое задание
+#     1. Скрипт должен корректно обрабатывать только одну переданную ему валюту.
+#     2. Сделайте значимые сообщения пользователю о работе скрипта.
+#     3. Скрипт могут запустить вообще без параметров, а могут с любым количеством параметров. Это надо учесть.
+#     4. Сделайте скриншот нескольких вызовов скрипта с разными аргументами.
+
 from utils import currency_rates
+from sys import argv
 
+cmd_input = argv
 url = 'http://www.cbr.ru/scripts/XML_daily.asp'
-currency_input = input('Введите трёхбуквенный код валюты: ')
-output = currency_rates(url, currency_input)
 
-if len(currency_input) == 0:
-    print('Код валюты не введён.')
-elif len(currency_input) > 3 or len(currency_input) < 3:
-    print('Ошибка ввода.\nКод валюты должен состоять из трёх букв.')
-elif output is None:
-    output = 'Не найдена валюта'
-    print(currency_input.upper(), ': ', output, sep='')
-else:
-    print(currency_input.upper(), ': ', output, sep='')
+if len(cmd_input) == 1:
+    print('Ошибка. Код валюты не введён.')
+    exit(0)
+elif len(cmd_input) == 2:
+    output = currency_rates(url, cmd_input[1])
+    if output is None:
+        output = 'Валюта не найдена'
+    print(cmd_input[1].upper(), ': ', output, sep='')
+elif len(cmd_input) > 2:
+    print('Ошибка ввода.\nКод валюты должен состоять из трёх букв без пробелов.')
