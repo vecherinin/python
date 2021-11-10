@@ -28,11 +28,11 @@ gen1 = iterator_with_yield(20)
 def iterator_with_yield_adv1(n):
     if n > 0:
         num = 1
-        while num**2 < 200:
+        while num**2 < 200 and num <= n:
             yield num
             num += 2
 
-gen2 = iterator_with_yield_adv1(1000)
+gen2 = iterator_with_yield_adv1(10)
 
 # Усложнение [две звездочки]:
 #     С ключевым словом yield: Вычислять и возвращать само число
@@ -42,8 +42,8 @@ gen2 = iterator_with_yield_adv1(1000)
 def iterator_with_yield_adv2(n):
     if n > 0:
         num, sum = 1, 1
-        while num**2 < 200:
-            yield num, sum
+        while num**2 < 200 and num < n:
+            yield num, sum, num**2
             num += 2
             sum += num
 
