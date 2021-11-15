@@ -34,9 +34,7 @@ def find_addr(input):
     return ip_list
 
 
-ips = find_addr(txt)
-ip_dict = Counter(ips)
-
+ip_dict = Counter(find_addr(txt))
 spam_requests = max(ip_dict.values())
 spammer = list(ip_dict.keys())[list(ip_dict.values()).index(spam_requests)]
 print(f'Spammer`s IP: {spammer}\nNumber of Requests: {spam_requests}')
