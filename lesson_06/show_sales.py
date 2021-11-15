@@ -23,6 +23,6 @@ elif len(argv) == 3:
     list_lines = lines[int(argv[1])-1:int(argv[2])]
     print_output(list_lines)
 else:
-    print('Ошибка ввода. Максимально допустимое количество чисел - 2.')
+    print('Ошибка ввода. Максимально допустимое количество чисел: 2.')
 
 file_db.close()
