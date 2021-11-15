@@ -28,15 +28,15 @@ def find_addr(input):
     """Получить список IP-адресов"""
     ip_list = list()
     for each in input:
-        remote_addr_in_str = each.find(' - - ')
-        remote_addr = each[:remote_addr_in_str].strip('\n')
+        end_index = each.find(' - - ')
+        remote_addr = each[:end_index].strip('\n')
         ip_list.append(remote_addr)
     return ip_list
 
 
-array = find_addr(txt)
-output = Counter(array)
+ips = find_addr(txt)
+ip_dict = Counter(ips)
 
-spam_requests = max(output.values())
-spammer = list(output.keys())[list(output.values()).index(spam_requests)]
+spam_requests = max(ip_dict.values())
+spammer = list(ip_dict.keys())[list(ip_dict.values()).index(spam_requests)]
 print(f'Spammer`s IP: {spammer}\nNumber of Requests: {spam_requests}')
