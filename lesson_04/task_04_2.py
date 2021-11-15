@@ -27,7 +27,6 @@
 #     усложняется код функции при этом?
 #     5. Вспомните в каких случаях функция возвращает None.
 
-
 import requests
 
 
@@ -50,7 +49,7 @@ def tag_slice(string, tag):
 def currency_rates(url, currency):
     """Return the currency rate.
     Required keyword arguments:
-    url - site address with currency rates.
+    url: site address with currency rates.
     currency: three-letter currency code.
     """
     response = requests.get(url)
