@@ -17,40 +17,26 @@
 #     Или таких спамеров может быть несколько?
 
 import requests
+from collections import Counter
 
 url = 'https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_logs/nginx_logs'
 response = requests.get(url)
 txt = response.text.split(')"')
 
 
-def find_addr(input, limiter_start, limiter_end):
-    output = list()
-    lines = input[limiter_start:limiter_end]
-    for each in lines:
-        remote_addr_idx = each.find(' - - ')
-        remote_addr = each[:remote_addr_idx].strip('\n')
-        output.append(remote_addr)
-    return output
-
-
-def count_dict(input):
-    output = dict()
+def find_addr(input):
+    """Получить список IP-адресов"""
+    ip_list = list()
     for each in input:
-        number = input.count(each)
-        output[each] = number
-    return output
+        remote_addr_in_str = each.find(' - - ')
+        remote_addr = each[:remote_addr_in_str].strip('\n')
+        ip_list.append(remote_addr)
+    return ip_list
 
 
-def find_spammer(input):
-    spam_requests = max(input.values())
-    spammer = list(input.keys())[list(input.values()).index(spam_requests)]
-    return f'Spammer`s IP: {spammer}\nNumber of requests: {spam_requests}'
+array = find_addr(txt)
+output = Counter(array)
 
-
-# Ограничитель поиска
-limiter_start = 0
-limiter_end = 10000
-
-array = find_addr(txt, limiter_start, limiter_end)
-output = count_dict(array)
-print(find_spammer(output))
+spam_requests = max(output.values())
+spammer = list(output.keys())[list(output.values()).index(spam_requests)]
+print(f'Spammer`s IP: {spammer}\nNumber of Requests: {spam_requests}')
