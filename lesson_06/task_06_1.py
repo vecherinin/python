@@ -1,3 +1,19 @@
+# Распарсить (получить определённые данные) файл логов web-сервера nginx_logs.txt
+#
+# Техническое задание
+#     1. Не использовать библиотеки для парсинга. Только работа со строками.
+#     2. Создать список кортежей вида: `(<remote_addr>, <request_type>, <requested_resource>)`. Именно список кортежей.
+#     3. Код должен работать даже с файлами, размер которых превышает объем ОЗУ компьютера.
+#     4. Вывести список на экран.
+#
+# Примечание:
+#     Файл логов можно загрузить отсюда:
+#     https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_logs/nginx_logs
+#
+# Усложнение
+#     Уверены ли вы, что шаблон строк всегда одинаков?
+#     Попробуйте придумать как оценить идентичность шаблона строк файла.
+
 import requests
 
 url = 'https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_logs/nginx_logs'
