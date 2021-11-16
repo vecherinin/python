@@ -22,7 +22,7 @@
 #     это реальная задача, которая решена, например, во фреймворке django.
 
 import os
-from shutil import copytree, ignore_patterns
+from shutil import copytree
 
 tpl = 'templates'
 path = os.path.join('.', 'task_07_2', 'my_project')
