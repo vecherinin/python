@@ -14,7 +14,7 @@
 #     размер файла можно получить из атрибута .st_size объекта os.stat.
 
 import os
-folder = os.path.join('.', 'some_data')
+folder = os.path.join('.', 'task_07_4', 'some_data')
 output = dict()
 
 
