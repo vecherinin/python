@@ -25,7 +25,7 @@ import os
 from shutil import copytree
 
 tpl = 'templates'
-path = os.path.join('.', 'task_07_2', 'my_project')
+path = os.path.join('.', 'task_07_3', 'my_project')
 dst = os.path.join(path, tpl)
 
 for root, dirs, files in os.walk(path):
