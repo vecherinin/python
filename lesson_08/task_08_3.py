@@ -17,7 +17,6 @@ def type_logger(func):
             for item in kwargs:
                 output.append(f"'{item}' = {kwargs[item]}: {type(kwargs[item])}")
             print(', '.join(output))
-            # return value
         print(f"Result: {value}, type: {type(value)}")
     return wrapper
 
