@@ -45,14 +45,14 @@ class Cell:
         else:
             return 'Вычитание невозможно\n'
 
+    def __mul__(self, other):
+        return Cell(self.quantity * other.quantity)
+
     def __floordiv__(self, other):
         if self.quantity > 0 and other.quantity > 0:
             return Cell(round(self.quantity / other.quantity))
         else:
             return f"Деление на ноль\n"
-
-    def __mul__(self, other):
-        return Cell(self.quantity * other.quantity)
 
     def make_order(self, row):
         if self.quantity > 0:
