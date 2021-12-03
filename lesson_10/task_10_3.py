@@ -45,7 +45,7 @@ class Cell:
         else:
             return 'Вычитание невозможно\n'
 
-    def __truediv__(self, other):
+    def __floordiv__(self, other):
         if self.quantity > 0 and other.quantity > 0:
             return Cell(round(self.quantity / other.quantity))
         else:
