@@ -27,20 +27,20 @@ def is_number(input):
         raise NotNumber
 
 
-res_list = []
+output_list = []
 i = 0
 while i == 0:
-    list_input = input('Введите числа, разделенные пробелом.\
+    input_list = input('Введите числа, разделенные пробелом.\
      \nДля завершения работы скрипта введите команду "stop"\n').split(sep=' ')
 
-    for el in list_input:
-        if el.lower() == 'stop':
+    for el in input_list:
+        if el == 'stop':
             i = 1
             break
         try:
-            res_list.append(is_number(el))
+            output_list.append(is_number(el))
         except NotNumber as nn:
             print(f'{nn.error}\nЭлемент {el} не будет добавлен в итоговый список\n')
             continue
 
-print(res_list)
+print(output_list)
